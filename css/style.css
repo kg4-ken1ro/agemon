@@ -1,0 +1,1189 @@
+/* common */
+h1,h2,h3,p{
+    font-family: "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+}
+a {
+    text-decoration: none;
+}
+
+/* sp */
+@media screen and (max-width: 450px) {
+    header {
+        max-width: 450px;
+        width: 100%;
+        height: 90px;
+        background-color: #910c00;
+        align-content: center;
+        position: fixed;
+        top: 0;
+        z-index: 10;
+    }
+    .header-wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+    }
+    .header-h1 {
+        width: 90px;
+        height: 72px;
+        margin-left: 8%;
+    }
+    .logo {
+        width: 90px;
+        height: 72px;
+        object-fit: cover;
+    }
+    .header-p {
+        font-size: 18px;
+        white-space: normal;
+        color: #fff;
+    }
+    .nav-menu {
+        display: none;
+    }
+
+    .openbtn1 {
+        /*ボタン内側の基点となるためrelativeを指定。
+    追従するナビゲーションの場合はfixed＋top、rightといった位置をセットで指定*/
+        position: relative;
+        cursor: pointer;
+        width: 50px;
+        height:50px;
+        border-radius: 5px;
+        margin-right: 8%;
+    }
+    
+    /*ボタン内側*/
+    .openbtn1 span{
+        display: inline-block;
+        transition: all .4s;/*アニメーションの設定*/
+        position: absolute;
+        left: 14px;
+        height: 2px;
+        border-radius: 5px;
+        background: #fff;
+        width: 58%;
+      }
+    
+    
+    .openbtn1 span:nth-of-type(1) {
+        top:13px;	
+    }
+    
+    .openbtn1 span:nth-of-type(2) {
+        top:19px;
+    }
+    
+    .openbtn1 span:nth-of-type(3) {
+        top:25px;
+    }
+    
+    .openbtn1 span:nth-of-type(3)::after {
+        content:"Menu";/*3つ目の要素のafterにMenu表示を指定*/
+        position: absolute;
+        top: 6px;
+        left: 0;
+        color: #fff;
+        font-size: 0.6rem;
+        text-transform: uppercase;
+    }
+    
+    /*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更*/
+    
+    .openbtn1.active span:nth-of-type(1) {
+        top: 14px;
+        left: 18px;
+        transform: translateY(6px) rotate(-45deg);
+        width: 30%;
+    }
+    
+    .openbtn1.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    
+    .openbtn1.active span:nth-of-type(3){
+        top: 26px;
+        left: 18px;
+        transform: translateY(-6px) rotate(45deg);
+        width: 30%;
+    }
+    
+    .openbtn1.active span:nth-of-type(3)::after {
+        content:"Close";/*3つ目の要素のafterにClose表示を指定*/
+        transform: translateY(0) rotate(-45deg);
+        top:5px;
+        left:4px;
+    }
+    
+    .humbergerIcon-menu {
+        display: none;
+    }
+    .humbergerIcon-menu.active {
+        display: block;
+        visibility: visible;
+        width: 100vw;
+        height: 100vh;
+        background-color: #fff;
+    }
+    .humbergerIcon-Lists {
+        width: 100%;
+        padding-top: 40%;
+ 
+    }
+    .humbergerIcon-li {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .humbergerIcon-li a {
+        font-size: 20px;
+        font-weight: bold;
+        color: #910c00;
+    }
+    .humbergerIcon-li a:hover {
+        font-size: 20px;
+        color: #fff;
+        background-color: #910c00;
+        border-radius: 8px;
+    }
+    /* ホーム */
+    .home {
+        width: 100%;
+        max-width: 450px;
+        padding-top: 90px;
+        height: 400px;
+        z-index: 1;
+    }
+    .home-main {
+        max-width: 300px;
+        width: 65%;
+        height: 400px;
+        float: left;
+        object-fit: cover;
+        background-color: #fff;
+    }
+    .home-main img {
+        width: 90%;
+        height: 336px;
+        object-fit: cover;
+        display: block;
+        margin: 8% 0 8% 8%;
+    }
+    .home-side {
+        max-width: 160px;
+        width: 35%;
+        height: 400px;
+        float: right;
+        background-color: #fff; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .home-side img{
+        width: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 5% auto;
+    }
+    .tel-wrap {
+        width: 80%;
+        margin: auto;
+    }
+    .tel-wrap p {
+        font-size: 8px;
+        white-space: normal;
+        color: #000; 
+        margin-bottom: 5%; 
+        text-align: left;
+    }
+    .tel-wrap a {
+        display: block;
+        font-size: 14px;
+        white-space: normal;
+        color: #000;     
+        text-align: left; 
+    }
+    /* 居酒屋あげもんとは */
+    .about-mv {
+        max-width: 450px;
+        width: 100%;
+        background-color: #fff;   
+    }
+    .about-mv img:first-child {
+        width: 100%;
+        object-fit: cover;
+    }
+    .about-mv img:nth-child(2) {
+        display: none;
+    }
+    .about-mv img:last-child {
+        display: none;
+    }
+    /* メニュー */
+    .menu-wrap {
+        max-width: 450px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    /* お品書き */
+    .food-wrap {
+        width: 100%;
+        padding-top: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .menu-h2 {
+        font-size: 30px;
+        color: #910c00;
+        margin: 20% auto 0 auto;
+    }
+    .food-menu {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .food-li {
+        width: 80%;
+        margin: 10% auto 0 auto;
+        position: relative;
+    }
+    .food-li img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+    .img-sub {
+        font-size: 20px;
+        color: #fff;
+        background-color: #910c00;
+        padding: 5px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    /* コースメニュー */
+    .set-wrap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .set-menus {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .set-menu {
+        width: 76%;
+        height: 100px;
+        border: 4px solid #910c00;
+        border-radius: 15px;
+        background-color: #fff;
+        margin: 20px auto 0 auto;
+        padding: auto 0;
+        position: relative;
+    }
+    .set-menu-h3 {
+        font-size: 20px;
+        color: #000;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+    .set-memu-p {
+        font-size: 20px;
+        color: #000;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    /* drink */
+    .drink-wrap {
+        max-width: 450px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 20%;
+    }
+    .drink-table {
+        table-layout: fixed;
+        border-collapse: separate;
+        border-spacing: 0 20px;
+    }
+    .drink-th {
+        font-size: 16px;
+        color: #000;
+    }
+    .drink-td {
+        font-size: 16px;
+        color: #000;
+    }
+    /* 店舗情報 */
+    .info-wrap {
+        max-width: 450px;
+        width: 100%;
+        background-size: cover;
+        background-image: url(../img/info_1.png); 
+        background-color:rgba(255,255,255,0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .info-h2 {
+        font-size: 30px;
+        color: 	#000;
+        text-align: center;
+        margin-top: 20%;
+    }
+    .info-table {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 15px;
+        margin: 10% auto;
+    }
+    .info-th {
+        width: 30%;
+        font-size: 14px;
+        color: 	#000;
+    }
+    .info-th-8 {
+        width: 30%;
+        font-size: 12px;
+        white-space: normal;
+        color: 	#000;
+    }
+    .info-td {
+        width: 70%;
+        font-size: 14px;
+        font-weight: bold;
+        color: 	#000;
+    }
+    .info-td-2, .info-td-8 {
+        width: 70%;
+        font-size: 12px;
+        font-weight: bold;
+        white-space: normal;
+        color: 	#000;
+    }
+    /* 地図 */
+    .info-map {
+        width: 80%;
+        height: 200px;
+        position: relative;
+        display: block;
+        margin: 0 auto 10% auto;
+    }
+    .info-map iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    /* footer */
+    .footer {
+        max-width: 450px;
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        background-color: #910c00;
+    }
+    small {
+        font-size: 6px;
+        color: #fff;
+        line-height: 60px;
+    }
+}
+
+/* tab */
+@media screen and (min-width: 450px) and (max-width: 850px) {
+    br {
+        display: none;
+    }
+    header {
+        max-width: 850px;
+        width: 100%;
+        height: 90px;
+        background-color: #910c00;
+        align-content: center;
+        position: fixed;
+        top: 0;
+        z-index: 10;
+    }
+    .header-wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+    }
+    .header-h1 {
+        width: 90px;
+        height: 72px;
+        margin-left: 10%;
+    }
+    .logo {
+        width: 90px;
+        height: 72px;
+        object-fit: cover;
+    }
+    .header-p {
+        font-size: 26px;
+        color: #fff;
+    }
+    .nav-menu {
+        display: none;
+    }
+
+    .openbtn1 {
+        /*ボタン内側の基点となるためrelativeを指定。
+    追従するナビゲーションの場合はfixed＋top、rightといった位置をセットで指定*/
+        position: relative;
+        cursor: pointer;
+        width: 50px;
+        height:50px;
+        border-radius: 5px;
+        margin-right: 10%;
+    }
+    
+    /*ボタン内側*/
+    .openbtn1 span{
+        display: inline-block;
+        transition: all .4s;/*アニメーションの設定*/
+        position: absolute;
+        left: 14px;
+        height: 2px;
+        border-radius: 5px;
+        background: #fff;
+        width: 80%;
+      }
+    
+    
+    .openbtn1 span:nth-of-type(1) {
+        top:10px;	
+    }
+    
+    .openbtn1 span:nth-of-type(2) {
+        top:19px;
+    }
+    
+    .openbtn1 span:nth-of-type(3) {
+        top:28px;
+    }
+    
+    .openbtn1 span:nth-of-type(3)::after {
+        content:"Menu";/*3つ目の要素のafterにMenu表示を指定*/
+        position: absolute;
+        top:7px;
+        left: -1px;
+        color: #fff;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+    }
+    
+    /*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更*/
+    
+    .openbtn1.active span:nth-of-type(1) {
+        top: 14px;
+        left: 18px;
+        transform: translateY(6px) rotate(-45deg);
+        width: 30%;
+    }
+    
+    .openbtn1.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    
+    .openbtn1.active span:nth-of-type(3){
+        top: 26px;
+        left: 18px;
+        transform: translateY(-6px) rotate(45deg);
+        width: 30%;
+    }
+    
+    .openbtn1.active span:nth-of-type(3)::after {
+        content:"Close";/*3つ目の要素のafterにClose表示を指定*/
+        transform: translateY(0) rotate(-45deg);
+        top:5px;
+        left:4px;
+    }
+    
+    .humbergerIcon-menu {
+        display: none;
+    }
+    .humbergerIcon-menu.active {
+        display: block;
+        visibility: visible;
+        width: 100vw;
+        height: 100vh;
+        background-color: #fff;
+    }
+    .humbergerIcon-Lists {
+        width: 100%;
+        padding-top: 40%; 
+    }
+    .humbergerIcon-li {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .humbergerIcon-li a {
+        font-size: 28px;
+        font-weight: bold;
+        color: #910c00;
+    }
+    .humbergerIcon-li a:hover {
+        font-size: 28px;
+        color: #fff;
+        background-color: #910c00;
+        border-radius: 8px;
+    }
+
+    /* ホーム */
+    .home {
+        max-width: 850px;
+        width: 100%;
+        padding-top: 90px;
+        height: 500px;
+    }
+    .home-main {
+        width: 65%;
+        height: 500px;
+        float: left;
+        background-color: #fff;
+    }
+    .home-main img {
+        width: 100%;
+        height: 430px;
+        object-fit: cover;
+        display: block;
+        padding: 7% 0 7% 7%;
+    }
+    .home-side {
+        max-width: 320px;
+        width: 35%;
+        height: 500px;
+        float: right;
+        background-color: #fff; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .home-side img{
+        width: 40%;
+        object-fit: cover;
+        display: block;
+        margin: 7% auto 0 auto;
+    }
+    .tel-wrap {
+        margin-top: 3%;
+        text-align: center;
+    }
+    .tel-wrap p {
+        font-size: 14px;
+        margin-bottom: 5%;
+        color: #000; 
+    }
+    .tel-wrap a {
+        font-size: 20px;
+        color: #000;
+    }
+    
+    /* 居酒屋あげもんとは */
+    .about-mv {
+        max-width: 850px;
+        width: 100%;
+        background-color: #fff;   
+    }
+    .about-mv img:first-child {
+        display: none;
+    }
+    .about-mv img:nth-child(2) {
+        width: 100%;
+        object-fit: cover;
+    }
+    .about-mv img:last-child {
+        display: none;
+    }
+    /* メニュー */
+    .menu-wrap {
+        max-width: 850px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 10%;
+    }
+    /* お品書き */
+    .food-wrap {
+        max-width: 850px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 10%;
+    }
+    .menu-h2 {
+        font-size: 42px;
+        color: #910c00;
+        margin: 50px auto 20px auto;
+    }
+    .food-menu {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .food-li {
+        width: 40%;
+        margin: 10px auto 0 auto;
+        position: relative;
+    }
+    .food-li img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10%;
+    }
+    .img-sub {
+        font-size: 26px;
+        color: #fff;
+        background-color: #910c00;
+        padding: 8px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    /* コースメニュー */
+    .set-wrap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 10%;
+    }
+    .set-menus {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .set-menu {
+        width: 40%;
+        height: 250px;
+        border: 4px solid #910c00;
+        border-radius: 15%;
+        background-color: #fff;
+        margin: 20px auto 0 auto;
+        padding: auto 0;
+        position: relative;
+    }
+    .set-menu-h3 {
+        font-size: 20px;
+        color: #000;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+    .set-memu-p {
+        font-size: 26px;
+        color: #000;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+        
+    }
+    /* drink */
+    .drink-wrap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+    .drink-table {
+        width: 70%;
+        margin: 0 auto 10% auto;
+        border-collapse: separate;
+        border-spacing: 15px;
+        table-layout: fixed;
+    }
+    /* .drink-tr {  
+    }  */
+    .drink-th {
+        color: #910c00;
+        font-size: 26px;
+    }
+    .drink-td {
+        color: #910c00;
+        font-size: 26px;
+        text-align: center;
+    }
+    /* 店舗情報 */
+    .info-wrap {
+        max-width: 850px;
+        width: 100%;
+        padding-top: 15%;
+        object-fit: cover;
+        background-image: url(../img/info_1.png); 
+        background-color:rgba(1,1,1,0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .info-h2 {
+        font-size: 42px;
+        color: #000;
+        text-align: center;
+    }
+    .info-table {
+        table-layout: fixed;
+        width: 80%;
+        border-collapse: separate;
+        border-spacing: 0 20px;
+        margin: 10% auto;
+    }
+    .info-th {
+        width: 30%;
+        font-size: 24px;
+        color: 	#000;
+    }
+    .info-th-8 {
+        width: 30%;
+        font-size: 20px;
+        color: 	#000;
+    }
+    .info-td {
+        width: 70%;
+        font-size: 24px;
+        font-weight: bold;
+        color: 	#000;
+    }
+    .info-td-2, .info-td-8 {
+        width: 70%;
+        font-size: 20px;
+        font-weight: bold;
+        color: 	#000;
+    }
+    /* 地図 */
+    .info-map {
+        width: 80%;
+        height: 300px;
+        position: relative;
+        display: block;
+        margin: 0 auto 10% auto;
+    }
+    .info-map iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    /* footer */
+    .footer {
+        max-width: 900px;
+        width: 100%;
+        height: 80px;
+        text-align: center;
+        background-color: #910c00;
+    }
+    small {
+        font-size: 8px;
+        color: #fff;
+        line-height: 80px;
+    }
+
+}
+
+/* PC */
+@media screen and (min-width: 850px) {
+    body {
+        max-width: 1028px;
+        margin: auto;
+    }
+    br {
+        display: none;
+    }
+    #header {
+        max-width: 1028px;
+        width: 100%;
+        height: 90px;
+        background-color: #910c00;
+        align-content: center;
+        position: fixed;
+        z-index: 10;
+        opacity: 0;
+    }
+    /*==ふわっと出現させるためのCSS*/
+
+    /*　上に上がる動き　*/
+
+    #header.UpMove{
+        position: fixed;
+        width:100%;
+        animation: UpAnime 0.5s forwards;
+    }
+    
+    @keyframes UpAnime{
+        from {
+        opacity: 1;
+        transform: translateY(0);
+        }
+        to {
+        opacity: 0;
+        transform: translateY(-100px);
+        }
+    }
+    
+    /*　下に下がる動き　*/
+    
+    #header.DownMove{
+        position: fixed;
+        width:100%;
+        animation: DownAnime 0.5s forwards;
+    }
+    @keyframes DownAnime{
+        from {
+        opacity: 0;
+        transform: translateY(-100px);
+        }
+        to {
+        opacity: 1;
+        transform: translateY(0);
+        }
+    }
+    .header-wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+    }
+    .header-h1 {
+        width: 90px;
+        height: 72px;
+        flex-basis: 20%;
+        margin-left: 5%;
+    }
+    .logo {
+        width: 90px;
+        height: 72px;
+        object-fit: cover;
+    }
+    .header-p {
+        font-size: 26px;
+        color: #fff;
+        flex-basis: 30%;
+    }
+    .nav-menu {
+        flex-basis: 50%;
+        margin-right: 5%;
+    }
+    .nav-menu ul {
+        display: flex;
+        justify-content:space-around;
+        align-items: center;
+    }
+    .nav-menu li {
+        font-size: 16px;
+    }
+    .nav-menu a {
+        color: #fff;
+        white-space: nowrap;
+    }
+    .nav-menu a:hover {
+        color: #910c00;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+
+    .openbtn1 {
+        /*ボタン内側の基点となるためrelativeを指定。
+    追従するナビゲーションの場合はfixed＋top、rightといった位置をセットで指定*/
+       display: none;
+    }
+    .humbergerIcon-menu {
+        display: none;
+    }
+
+    /* ホーム */
+    .home {
+        max-width: 1028px;
+        width: 100%;
+        height: 650px;
+    }
+    .home-main {
+        max-width: 670px;
+        width: 65%;
+        height: 600px;
+        float: left;
+        object-fit: cover;
+        background-color: #fff;
+    }
+    .home-main img {
+        width: 90%;
+        height: 540px;
+        object-fit: cover;
+        display: block;
+        margin: 5% 0 5% 5%;
+    }
+    .home-side {
+        max-width: 360px;
+        width: 35%;
+        height: 600px;
+        float: right;
+        background-color: #fff; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .home-side img{
+        width: 36%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 5% auto;
+    }
+    .tel-wrap {
+        text-align: center;
+    }
+    .tel-wrap p {
+        font-size: 16px;
+        color: #000; 
+        margin-bottom: 5%; 
+    }
+    .tel-wrap a {
+        font-size: 28px;
+        color: #fff;
+        margin-top: 8%; 
+        background-color: #000;
+        border-radius: 50px;
+        box-shadow: 2px 2px 1px gray; 
+        padding: 5px;      
+    }
+    .tel-wrap a:hover {
+        opacity: 0.6;
+    }
+
+    /* 居酒屋あげもんとは */
+
+    .about-mv {
+        max-width: 1028px;
+        width: 100%;
+    }
+    .about-mv img:first-child {
+        display: none;
+    }
+    .about-mv img:nth-child(2) {
+        display: none;
+    }
+    .about-mv img:last-child {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    /* メニュー */
+    .menu-wrap {
+        max-width: 1028px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 10%;
+    }
+    /* お品書き */
+    .food-wrap {
+        max-width: 1280px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 10%;
+    }
+    .menu-h2 {
+        font-size: 42px;
+        color: #910c00;
+        margin: 50px auto 20px auto;
+    }
+    .food-menu {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .food-li {
+        width: 30%;
+        margin: 10px auto 0 auto;
+        position: relative;
+    }
+    .food-li img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10%;
+    }
+    .img-sub {
+        font-size: 26px;
+        color: #fff;
+        background-color: #910c00;
+        padding: 8px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    /* コースメニュー */
+    .set-wrap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 10%;
+    }
+    .set-menus {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .set-menu {
+        width: 40%;
+        height: 300px;
+        border: 4px solid #910c00;
+        border-radius: 15%;
+        background-color: #fff;
+        margin: 20px auto 0 auto;
+        padding: auto 0;
+        position: relative;
+    }
+    .set-menu-h3 {
+        font-size: 30px;
+        color: #000;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+    .set-memu-p {
+        font-size: 30px;
+        color: #000;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+        
+    }
+    /* drink */
+    .drink-wrap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 10%;
+    }
+    .drink-table {
+        width: 70%;
+        margin: auto;
+        border-collapse: separate;
+        border-spacing: 15px;
+        table-layout: fixed;
+    }
+    /* .drink-tr { 
+    }  */
+    .drink-th {
+        color: #910c00;
+        font-size: 26px;
+    }
+    .drink-td {
+        color: #910c00;
+        font-size: 26px;
+        text-align: center;
+    }
+    /* 店舗情報 */
+    .info-wrap {
+        max-width: 1028px;
+        width: 100%;
+        padding-top: 15%;
+        padding-bottom: 10%;
+        background-size: cover;
+        background-image: url(../img/info_1.png); 
+        background-repeat: no-repeat;
+        background-color:rgba(1,1,1,0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .info-h2 {
+        font-size: 42px;
+        color: #000;
+        text-align: center;
+    }
+    .info-table {
+        table-layout: fixed;
+        width: 80%;
+        border-collapse: separate;
+        border-spacing: 0 20px;
+        margin: 5% auto;
+    }
+    .info-th {
+        width: 30%;
+        font-size: 24px;
+        color: 	#000;
+    }
+    .info-th-8 {
+        width: 30%;
+        font-size: 24px;
+        color: 	#000;
+    }
+    .info-td {
+        width: 70%;
+        font-size: 24px;
+        font-weight: bold;
+        color: 	#000;
+    }
+    .info-td-2, .info-td-8 {
+        width: 70%;
+        font-size: 24px;
+        font-weight: bold;
+        color: 	#000;
+    }
+    /* 地図 */
+    .info-map {
+        max-width: 1028px;
+        width: 80%;
+        height: 300px;
+        margin: auto;
+        position: relative;
+    }
+    .info-map iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    /* footer */
+    .footer {
+        max-width: 1028px;
+        width: 100%;
+        height: 80px;
+        text-align: center;
+        background-color: #910c00;
+    }
+    small {
+        font-size: 10px;
+        color: #fff;
+        line-height: 80px;
+    }
+}
